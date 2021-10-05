@@ -1,0 +1,22 @@
+ <% if user_signed_in? %>
+
+ 
+ 
+ <%= form_with url: "/posts", method: :post do |f| %>
+      
+       <%= f.fields_for :post do |p| %>
+         <div class="field">
+           <%= p.label :image %><br>
+           <%= p.file_field :image%>
+         </div>
+         <br>
+         <br>
+       <% end %>
+       <div class="actions">
+         <%= f.submit %>
+       </div>
+    <% end   %>
+
+<% else %>
+ <%flash[:alert] = "User not found."%>
+<% end %>   

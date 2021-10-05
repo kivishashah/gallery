@@ -1,0 +1,39 @@
+
+<% if user_signed_in? %>
+
+ 
+<table border="3">   
+   
+  <tbody>    
+
+     
+  <div class="row">
+
+  <% @post.each do |post| %>   
+  
+
+  <div class="col-md-2">
+
+  <ul class="navbar-nav me-auto mb-2 mt-2 mb-lg-0">
+
+
+  <a href="<%= post_url(post)%>">    <%= image_tag post.image.url ,:size => "260x180"%> </a>
+        
+  <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>
+  <%= link_to 'Edit', edit_post_path(post) %>
+  <%
+=begin%>
+ <%= link_to 'Show', post ,method: :get %> 
+<%
+=end%>
+  </ul> 
+  </div>
+  <% end %>   
+
+  </div>
+  </tbody>
+  </table>
+ 
+  <% else %>
+ <%flash[:alert] = "User not found."%>
+<% end %>   

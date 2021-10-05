@@ -1,0 +1,20 @@
+
+<%
+=begin%>
+ <%= current_user.posts%> 
+<%
+=end%>
+ 
+<%= image_tag @post.image.url %>
+
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%
+=begin%>
+ <%= button_to "Next", post_path, method: :get %> 
+<%
+=end%>
+
+
+
+<%= link_to "Previous", @prev_image if !@prev_image.nil?  %>
+<%= link_to "Next", @next_image if !@next_image.nil? %>
